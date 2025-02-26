@@ -34,7 +34,7 @@ build:
         --ignore=github.com/minio/filepath
         --ignore=github.com/minio/madmin-go/v3
         --ignore=github.com/minio/pkg/v3${{ ' --ignore=github.com/mattn/go-localereader' if win else '' }}
-  number: 0
+  number: 1
 
 requirements:
   build:
