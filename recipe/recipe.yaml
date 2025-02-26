@@ -1,14 +1,13 @@
 context:
   name: minio-client
-  tag: RELEASE.2024-11-21T17-21-54Z
-  version: ${{ tag | replace('RELEASE.', '') | replace('T', '.') | replace('-', '.') | replace('Z', '') }}
+  version: 2024-11-21T17-21-54Z
 
 package:
   name: ${{ name|lower }}
-  version: ${{ version }}
+  version: ${{ version | replace('T', '.') | replace('-', '.') | replace('Z', '') }}
 
 source:
-  - url: https://github.com/minio/mc/archive/refs/tags/${{ tag }}.tar.gz
+  - url: https://github.com/minio/mc/archive/refs/tags/RELEASE.${{ version }}.tar.gz
     sha256: dbfb5eff8a9d1a8b3b02c30596377d44478040cd19563314656f4cd009de8922
     target_directory: src
   - url: https://raw.githubusercontent.com/minio/madmin-go/refs/heads/main/LICENSE
@@ -35,7 +34,7 @@ build:
         --ignore=github.com/minio/filepath
         --ignore=github.com/minio/madmin-go/v3
         --ignore=github.com/minio/pkg/v3${{ ' --ignore=github.com/mattn/go-localereader' if win else '' }}
-  number: 0
+  number: 1
 
 requirements:
   build:
