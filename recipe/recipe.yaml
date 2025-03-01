@@ -1,6 +1,6 @@
 context:
   name: minio-client
-  version: 2024-11-21T17-21-54Z
+  version: "2025-02-21T16-00-46Z"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/minio/mc/archive/refs/tags/RELEASE.${{ version }}.tar.gz
-    sha256: dbfb5eff8a9d1a8b3b02c30596377d44478040cd19563314656f4cd009de8922
+    sha256: 5c0814f68338c9ddecc1230886abee1773740e374f4d2dac3b6b8bfaabeae5db
     target_directory: src
   - url: https://raw.githubusercontent.com/minio/madmin-go/refs/heads/main/LICENSE
     sha256: 0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0
@@ -28,13 +28,8 @@ build:
         - go build -o $PREFIX/bin/mc
       else:
         - go build -o %PREFIX%\bin\mc.exe
-    - go-licenses save --save_path=../library_licenses .
-        --ignore=github.com/minio/mc
-        --ignore=github.com/minio/colorjson
-        --ignore=github.com/minio/filepath
-        --ignore=github.com/minio/madmin-go/v3
-        --ignore=github.com/minio/pkg/v3${{ ' --ignore=github.com/mattn/go-localereader' if win else '' }}
-  number: 1
+    - go-licenses save --save_path=../library_licenses . --ignore=github.com/minio/mc --ignore=github.com/minio/colorjson --ignore=github.com/minio/filepath --ignore=github.com/minio/madmin-go/v3 --ignore=github.com/minio/pkg/v3${{ ' --ignore=github.com/mattn/go-localereader' if win else '' }}
+  number: 0
 
 requirements:
   build:
