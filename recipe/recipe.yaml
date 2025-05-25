@@ -1,6 +1,6 @@
 context:
   name: minio-client
-  version: "2025-04-03T17-07-56Z"
+  version: "2025-05-21T01-59-54Z"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/minio/mc/archive/refs/tags/RELEASE.${{ version }}.tar.gz
-    sha256: e8f6bc82f898e37aea981e7243919a84cfff195cf0dba1e72b4eabfc08aa778a
+    sha256: 90cf93cd49efc8da616779c36f4823d60a7e07be2e50d2072fee5069f4e38a36
     target_directory: src
   - url: https://raw.githubusercontent.com/minio/madmin-go/refs/heads/main/LICENSE
     sha256: 0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0
