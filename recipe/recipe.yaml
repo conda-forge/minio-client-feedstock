@@ -29,13 +29,11 @@ build:
       else:
         - go build -o %PREFIX%\bin\mc.exe
     - go-licenses save --save_path=../library_licenses . --ignore=github.com/minio/mc --ignore=github.com/minio/colorjson --ignore=github.com/minio/filepath --ignore=github.com/minio/madmin-go/v3 --ignore=github.com/minio/pkg/v3${{ ' --ignore=github.com/mattn/go-localereader' if win else '' }}
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - ${{ compiler('go') }}
-    - ${{ compiler('c') }}
-    - ${{ stdlib('c') }}
+    - ${{ compiler('go-nocgo') }}
     - go-licenses
 
 tests:
